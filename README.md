@@ -1,5 +1,5 @@
 # FootballPrediction
 
-Football results predicitons
+Football shot results predicitons
 
 Kamil Niemczyk
