@@ -13,35 +13,45 @@ from sklearn.metrics import accuracy_score, confusion_matrix
 X, y = return_data()
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=56)
 # DecisionTreeClassifier
-# tree = DecisionTreeClassifier()   # DecisionTreeClassifier
-# tree.fit(X_train, y_train)
-# print("DecisionTreeClassifier score")
-# print(tree.score(X_test, y_test))
+tree = DecisionTreeClassifier()   # DecisionTreeClassifier
+tree.fit(X_train, y_train)
+print("DecisionTreeClassifier score")
+print(tree.score(X_test, y_test))
 
-# plt.figure(figsize=(20,10))  # Set the figure size
-# plot_tree(tree, filled=True, feature_names=['player_id','situation', 'X', 'Y','shotType', 'h_team'], max_depth=8)
-# plt.show()
-# r = export_text(tree, feature_names=['player_id','situation', 'X', 'Y','shotType', 'h_team','a_team'])
-# print(r)
+plt.figure(figsize=(20,10))  # Set the figure size
+plot_tree(tree, filled=True, feature_names=['player_id','situation', 'X', 'Y','shotType', 'h_team'], max_depth=10)
+plt.show()
+r = export_text(tree, feature_names=['player_id','situation', 'X', 'Y','shotType', 'h_team','a_team'])
+print(r)
 
         
-# k-NN, k=3
-# neighbours = KNeighborsClassifier(n_neighbors=3)
-# neighbours_fit = neighbours.fit(X_train, y_train)
-# predict = neighbours_fit.predict(X_test)
-# correct = accuracy_score(y_test, predict)
-# print("k-NN, k=3")
-# print(correct)
-# print(confusion_matrix(y_test, predict))
+# # k-NN, k=3
+neighbours = KNeighborsClassifier(n_neighbors=3)
+neighbours_fit = neighbours.fit(X_train, y_train)
+predict = neighbours_fit.predict(X_test)
+correct = accuracy_score(y_test, predict)
+print("k-NN, k=3")
+print(correct)
+print(confusion_matrix(y_test, predict))
 
-# k-NN, k=5
-# neighbours = KNeighborsClassifier(n_neighbors=5)
-# neighbours_fit = neighbours.fit(X_train, y_train)
-# predict = neighbours_fit.predict(X_test)
-# correct = accuracy_score(y_test, predict)
-# print("k-NN, k=5")
-# print(correct)
-# print(confusion_matrix(y_test, predict))
+# # k-NN, k=5
+neighbours = KNeighborsClassifier(n_neighbors=5)
+neighbours_fit = neighbours.fit(X_train, y_train)
+predict = neighbours_fit.predict(X_test)
+correct = accuracy_score(y_test, predict)
+print("k-NN, k=5")
+print(correct)
+print(confusion_matrix(y_test, predict))
+
+# # k-NN, k = 11
+neighbours = KNeighborsClassifier(n_neighbors=11)
+neighbours_fit = neighbours.fit(X_train, y_train)
+predict = neighbours_fit.predict(X_test)
+correct = accuracy_score(y_test, predict)
+print("k-NN, k=11")
+print(correct)
+print(confusion_matrix(y_test, predict))
+
 
 # Naive Bayes
 gnb = GaussianNB()
@@ -50,6 +60,8 @@ predict = gnb_fit.predict(X_test)
 correct = accuracy_score(y_test, predict)
 print("Naive Bayes")
 print(correct)
+print(confusion_matrix(y_test, predict))
+
 
 
 

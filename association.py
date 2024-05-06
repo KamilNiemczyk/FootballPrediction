@@ -4,7 +4,7 @@ import numpy as np
 from mlxtend.frequent_patterns import apriori
 from mlxtend.frequent_patterns import association_rules
 
-# X, y = return_data()
+X, y = return_data()
 
 dataset = pd.read_csv('FullShotsData.csv')
 data = dataset[['player_id','situation', 'X', 'Y','shotType', 'h_team','a_team','xG']]
@@ -17,6 +17,6 @@ data_encoded = data_encoded.astype(bool).astype(int)
 # print(data_encoded.head())
 
 frequent_itemsets = apriori(data_encoded, min_support=0.2, use_colnames=True)
-# print(frequent_itemsets)
+print(frequent_itemsets)
 
 
